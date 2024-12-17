@@ -5,7 +5,7 @@ function define(name, value) {
     });
 }
 
-define("hostcorreo", "xxx");
+define("hostcorreo", "44444");
 define("portcorreo", 465);
 define("securecorreo", true);
 define("usercorreo", "xxx");
