@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-console.log(constantes.hostcorreo);
+//console.log(constantes.hostcorreo);
 
 
 var LineaArchivo = '';
@@ -26,9 +26,6 @@ var apellido = '';
 var correo = '';
 var claveplana = '';
 var saludo = 'Saludos';
-
-
-
 
 
 let line;
@@ -48,29 +45,30 @@ while (line = liner.next()) {
     }
 
     mailOptions = {
-      from: '"Concientización de Cibersegiridad " <ciber@ssdefensa.gov.cl>', // sender address
-      to:  nombre +" "+ apellido +" <"+ correo +">", // list of receivers
-      subject: "Acceso a plataforma e-learning", // Subject line
+      from: '"Concientización de Cibersegiridad " <tablero@sdtic.cl>', 
+      to:  nombre +" "+ apellido +" <"+ correo +">", 
+      subject: "Acceso a plataforma e-learning", 
       text: saludo +" "+ nombre + " " + apellido +
             " Sus datos de acceso a la plataforma de e-learning son los siguientes: "+
             " - Usuario: "+ username +
             " - Contraseña: "+ claveplana +
-            " Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad", // plain text body
+            " Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad", // texto plano
       html: saludo +" <b>"+ nombre +" "+ apellido +"</b>"+
             "<br><br>Sus datos de acceso a la plataforma de e-learning son los siguientes: <br><br>"+
             "- Usuario: <b>"+ username + " </b><br>"+
             "- Contraseña: <b>"+ claveplana + " </b><br>"+
             "- URL: <b> <a href='https://www.seade.cl/moodle'>Plataforma e-learning</a></b><br><br>" +
-            "Saluda atentamente,<br> <b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html body
+            "Saluda atentamente,<br> <b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html
     };
 
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
             return console.log(error);
         }
-        console.log('Enviado a: '+ correo +' Ressultado: ' + info.response);
+        console.log('Enviado a: '+ correo +' Resultado: ' + info.response);
     });
     saludo = 'Saludos';
     
-    console.log('apellido: ' + apellido);
+    //console.log('apellido: ' + apellido);
+
 }
