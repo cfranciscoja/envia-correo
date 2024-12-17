@@ -1,3 +1,2 @@
 usuario1	m	nombreM	Apellido1 Apellido2	xxxx@xxx.xxx	xxxxx
 usuario2	f	NombreF	Apellido1 Apellido2	xxxx@xxx.xxx	xxxxx
-
