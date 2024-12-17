@@ -20,12 +20,12 @@ var apellido = '';
 var correo = '';
 var claveplana = '';
 var transporter = nodemailer.createTransport({
-  host: "",
-  port: 465,
-  secure: true, // true for 465, false for other ports
+  host: constantes.hostcorreo,
+  port: constantes.portcorreo,
+  secure: constantes.securecorreo, // true for 465, false for other ports
   auth: {
-    user: "", // generated ethereal user
-    pass: "", // generated ethereal password
+    user: constantes.usercorreo, // generated ethereal user
+    pass: constantes.passcorreo, // generated ethereal password
   },
 });
 
