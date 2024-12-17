@@ -56,12 +56,12 @@ while (line = liner.next()) {
             "- URL: <b><a href>http://desa.sdefensa.cl/repos/votacion/html/public/</b><br><br>" +
             "Saluda atentamente,<br> <b>Sistema de votación on-line</b>", // html body
     };
-    /* transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function(error, info){
         if(error){
             return console.log(error);
         }
         console.log('Message sent: ' + info.response);
     });
-    */
-    console.log('apellido: ' + apellido);
+    
+    //console.log('apellido: ' + apellido);
 }
