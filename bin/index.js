@@ -19,13 +19,14 @@ var nombre = '';
 var apellido = '';
 var correo = '';
 var claveplana = '';
+var saludo = 'Saludos';
 var transporter = nodemailer.createTransport({
   host: constantes.hostcorreo,
   port: constantes.portcorreo,
-  secure: constantes.securecorreo, // true for 465, false for other ports
+  secure: constantes.securecorreo, 
   auth: {
-    user: constantes.usercorreo, // generated ethereal user
-    pass: constantes.passcorreo, // generated ethereal password
+    user: constantes.usercorreo, 
+    pass: constantes.passcorreo, 
   },
 });
 
@@ -39,29 +40,37 @@ while (line = liner.next()) {
     nombre = LineaArchivo[2];
     apellido = LineaArchivo[3];
     correo = LineaArchivo[4];
+    claveplana = LineaArchivo[5];
+
+    if (genero == 'm') {
+      saludo = 'Estimado';
+    } else {
+      saludo = 'Estimada';
+    }
 
     mailOptions = {
-      from: '"Concientizacion de Cibersegiridad " <ciber@sdtic.cl>', // sender address
-      to:  nombre + "<" + correo + ">", // list of receivers
+      from: '"Concientización de Cibersegiridad " <ciber@sdtic.cl>', // sender address
+      to:  nombre +" "+ apellido +" <"+ correo +">", // list of receivers
       subject: "Acceso a plataforma e-learning", // Subject line
-      text: "Estimado(a) "+ nombre +
-            " Sus datos de acceso al sistema de votación son los siguientes: "+
-            " - Usuario: "+ correo +
+      text: saludo +" "+ nombre + " " + apellido +
+            " Sus datos de acceso a la plataforma de e-learning son los siguientes: "+
+            " - Usuario: "+ username +
             " - Contraseña: "+ claveplana +
-            " Saluda atentamente, Sistema de vtación on-line", // plain text body
-      html: "<b>Estimado(a) "+ nombre + " </b>"+
-            "<br><br>Sus datos de acceso al sistema de votación son los siguientes:<br><br>"+
-            "- Usuario: <b>"+ correo + " </b><br>"+
+            " Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad", // plain text body
+      html: saludo +" <b>"+ nombre +" "+ apellido +"</b>"+
+            "<br><br>Sus datos de acceso a la plataforma de e-learning son los siguientes: <br><br>"+
+            "- Usuario: <b>"+ username + " </b><br>"+
             "- Contraseña: <b>"+ claveplana + " </b><br>"+
-            "- URL: <b><a href>http://desa.sdefensa.cl/repos/votacion/html/public/</b><br><br>" +
-            "Saluda atentamente,<br> <b>Sistema de votación on-line</b>", // html body
+            "- URL: <b> <a href='https://www.seade.cl/moodle'>Plataforma e-learning</a></b><br><br>" +
+            "Saluda atentamente,<br> <b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html body
     };
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
             return console.log(error);
         }
-        console.log('Message sent: ' + info.response);
+        console.log('Enviado a: '+ correo +' Ressultado: ' + info.response);
     });
+    saludo = 'Saludos';
     
     //console.log('apellido: ' + apellido);
 }
