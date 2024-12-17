@@ -3,13 +3,19 @@
 const lineByLine = require('n-readlines');
 const liner = new lineByLine('../listas/listado.txt');
 
-
-var constantes = require("../const/constantes");
+const constantes = require("../const/constantes");
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+  host: constantes.hostcorreo,
+  port: constantes.portcorreo,
+  secure: constantes.securecorreo, 
+  auth: {
+    user: constantes.usercorreo, 
+    pass: constantes.passcorreo, 
+  },
+});
 
 console.log(constantes.hostcorreo);
-
-var nodemailer = require('nodemailer');
-
 
 
 var LineaArchivo = '';
@@ -20,15 +26,8 @@ var apellido = '';
 var correo = '';
 var claveplana = '';
 var saludo = 'Saludos';
-var transporter = nodemailer.createTransport({
-  host: constantes.hostcorreo,
-  port: constantes.portcorreo,
-  secure: constantes.securecorreo, 
-  auth: {
-    user: constantes.usercorreo, 
-    pass: constantes.passcorreo, 
-  },
-});
+
+
 
 
 
@@ -64,13 +63,14 @@ while (line = liner.next()) {
             "- URL: <b> <a href='https://www.seade.cl/moodle'>Plataforma e-learning</a></b><br><br>" +
             "Saluda atentamente,<br> <b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html body
     };
-    transporter.sendMail(mailOptions, function(error, info){
+
+    /*transporter.sendMail(mailOptions, function(error, info){
         if(error){
             return console.log(error);
         }
         console.log('Enviado a: '+ correo +' Ressultado: ' + info.response);
-    });
+    });*/
     saludo = 'Saludos';
     
-    //console.log('apellido: ' + apellido);
+    console.log('apellido: ' + apellido);
 }
