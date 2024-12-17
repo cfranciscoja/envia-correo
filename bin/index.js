@@ -64,12 +64,12 @@ while (line = liner.next()) {
             "Saluda atentamente,<br> <b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html body
     };
 
-    /*transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function(error, info){
         if(error){
             return console.log(error);
         }
         console.log('Enviado a: '+ correo +' Ressultado: ' + info.response);
-    });*/
+    });
     saludo = 'Saludos';
     
     console.log('apellido: ' + apellido);
