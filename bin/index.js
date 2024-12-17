@@ -4,7 +4,7 @@ const lineByLine = require('n-readlines');
 const liner = new lineByLine('../listas/listado.txt');
 
 
-var constantes = require("..const/constantes");
+var constantes = require("../const/constantes");
 
 console.log(constantes.hostcorreo);
 
