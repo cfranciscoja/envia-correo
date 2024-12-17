@@ -49,7 +49,7 @@ while (line = liner.next()) {
     }
 
     mailOptions = {
-      from: '"Concientización de Cibersegiridad " <ciber@sdtic.cl>', // sender address
+      from: '"Concientización de Cibersegiridad " <ciber@ssdefensa.gov.cl>', // sender address
       to:  nombre +" "+ apellido +" <"+ correo +">", // list of receivers
       subject: "Acceso a plataforma e-learning", // Subject line
       text: saludo +" "+ nombre + " " + apellido +
