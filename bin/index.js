@@ -65,7 +65,7 @@ while (line = liner.next()) {
         if(error){
             return console.log(error);
         }
-        console.log('Enviado a: '+ correo +' Resultado: ' + info.response);
+        console.log('response: ' + info.response + ' messageId:' + info.messageId );
     });
     saludo = 'Saludos';
     
