@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 #otros
-./const/constantes.js
+const/constantes.js
