@@ -1,0 +1,20 @@
+{
+  "name": "generaclave",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Carlos Aravena",
+  "license": "MIT",
+  "bin": {
+    "hello": "./bin/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "n-readlines": "^1.0.1",
+    "nodemailer": "^6.5.0"
+  }
+}
