@@ -45,20 +45,23 @@ while (line = liner.next()) {
     }
 
     mailOptions = {
-      from: '"Concientización de Cibersegiridad " <tablero@sdtic.cl>', 
+      from: '"Concientización de Cibersegiridad" <tablero@sdtic.cl>', 
       to:  nombre +" "+ apellido +" <"+ correo +">", 
       subject: "Acceso a plataforma e-learning", 
-      text: saludo +" "+ nombre + " " + apellido +
-            " Sus datos de acceso a la plataforma de e-learning son los siguientes: "+
-            " - Usuario: "+ username +
-            " - Contraseña: "+ claveplana +
-            " Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad", // texto plano
+      text: `${saludo} ${nombre} ${apellido} Sus datos de acceso a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes:  - Usuario: ${username} - Contraseña: ${claveplana} Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad`, // texto plano
       html: saludo +" <b>"+ nombre +" "+ apellido +"</b>"+
-            "<br><br>Sus datos de acceso a la plataforma de e-learning son los siguientes: <br><br>"+
-            "- Usuario: <b>"+ username + " </b><br>"+
-            "- Contraseña: <b>"+ claveplana + " </b><br>"+
+            "<br><br>Sus datos de acceso a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes: <br><br>"+
+            "- Usuario: <b>"+ username + "</b><br>"+
+            "- Contraseña: <b>"+ claveplana + "</b><br>"+
             "- URL: <b> <a href='https://www.seade.cl/moodle'>Plataforma e-learning</a></b><br><br>" +
-            "Saluda atentamente,<br> <b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html
+            "Saludos cordiales,<br><b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html
+      attachments: [
+           {   // utf-8 string as an attachment
+               filename: 'manual_de_uso.pdf',
+               //content: new Buffer('hello world!','utf-8')
+               path: '../listas/manual_de_uso.pdf'
+           }
+      ]
     };
 
     transporter.sendMail(mailOptions, function(error, info){
