@@ -54,7 +54,7 @@ while (line = liner.next()) {
             "- Usuario: <b>"+ username + "</b><br>"+
             "- Contraseña: <b>"+ claveplana + "</b><br>"+
             "- URL: <b> <a href='https://www.seade.cl/moodle'>Plataforma e-learning</a></b><br><br>" +
-            "Saludos cordiales,<br><b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html
+            "Se adjunta manual de uso.<br><br>Saludos cordiales,<br><b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html
       attachments: [
            {   // utf-8 string as an attachment
                filename: 'manual_de_uso.pdf',
