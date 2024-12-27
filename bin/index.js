@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     pass: constantes.passcorreo, 
   },
   tls: {
-    ciphers: constantes.cipherscorreo 
+    ciphers: constantes.cipherscorreo, 
   },
 });
 
@@ -48,7 +48,7 @@ while (line = liner.next()) {
     }
 
     mailOptions = {
-      from: '"Concientización de Cibersegiridad" <tablero@sdtic.cl>', 
+      from: '"Concientización de Cibersegiridad" <deptociber@ssdefensa.gov.cl>', 
       to:  nombre +" "+ apellido +" <"+ correo +">", 
       subject: "Acceso a plataforma e-learning", 
       text: `${saludo} ${nombre} ${apellido} Sus datos de acceso a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes:  - Usuario: ${username} - Contraseña: ${claveplana} Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad`, // texto plano
