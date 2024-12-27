@@ -13,6 +13,9 @@ const transporter = nodemailer.createTransport({
     user: constantes.usercorreo, 
     pass: constantes.passcorreo, 
   },
+  tls: {
+    ciphers: constantes.cipherscorreo 
+  },
 });
 
 //console.log(constantes.hostcorreo);
