@@ -52,7 +52,7 @@ while (line = liner.next()) {
       from: '"Concientización de Cibersegiridad" <ciber@sdtic.cl>', 
       to:  nombre +" "+ apellido +" <"+ correo +">", 
       subject: "Acceso a plataforma e-learning", 
-      text: `${saludo} ${nombre} ${apellido} Sus datos de acceso a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes:  - Usuario: ${username} - Contraseña: ${claveplana} Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad`, // texto plano
+      text: `${saludo} ${nombre} ${apellido} Sus datos de acceso   a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes:  - Usuario: ${username} - Contraseña: ${claveplana} Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad`, // texto plano
       html: saludo +" <b>"+ nombre +" "+ apellido +"</b>"+
             "<br><br>Sus datos de acceso a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes: <br><br>"+
             "- Usuario: <b>"+ username + "</b><br>"+
