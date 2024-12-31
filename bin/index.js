@@ -6,17 +6,14 @@ const liner = new lineByLine('../listas/listado.txt');
 const constantes = require("../const/constantes");
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
+  pool: true,
   host: constantes.hostcorreo,
   port: constantes.portcorreo,
-  secure: constantes.securecorreo, 
+  secure: constantes.securecorreo,
   auth: {
-    user: constantes.usercorreo, 
-    pass: constantes.passcorreo, 
+    user: constantes.usercorreo,
+    pass: constantes.passcorreo,
   },
-//  tls: {
-//    rejectUnauthorized: true,
-//    ciphers: constantes.cipherscorreo, 
-//  },
 });
 
 //console.log(constantes.hostcorreo);
