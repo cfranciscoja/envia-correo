@@ -62,15 +62,16 @@ while (line = liner.next()) {
            }
       ]
     };
-
+/*
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
             return console.log(error);
         }
         console.log('response: ' + info.response + ' messageId:' + info.messageId );
-    });
+    });*/
+
     saludo = 'Saludos';
     
-    //console.log('apellido: ' + apellido);
+    console.log('apellido: ' + campo_005);
 
 }
