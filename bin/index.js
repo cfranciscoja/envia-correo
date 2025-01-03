@@ -58,7 +58,7 @@ while (line = liner.next()) {
            {   // utf-8 string as an attachment
                filename: campo_005,
                //content: new Buffer('hello world!','utf-8')
-               path: '../listas/'+campo_005
+               path: '../archivos/'+campo_005
            }
       ]
     };
