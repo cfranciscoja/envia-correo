@@ -20,47 +20,45 @@ const transporter = nodemailer.createTransport({
 
 
 var LineaArchivo = '';
-var username = '';
-var genero = '';
-var nombre = '';
-var apellido = '';
-var correo = '';
-var claveplana = '';
+var campo_000 = '';
+var campo_001 = '';
+var campo_002 = '';
+var campo_003 = '';
+var campo_004 = '';
+var campo_005 = '';
+
 var saludo = 'Saludos';
 
 
 let line;
 while (line = liner.next()) {
     LineaArchivo = line.toString().split('\t');
-    username = LineaArchivo[0];
-    genero = LineaArchivo[1];
-    nombre = LineaArchivo[2];
-    apellido = LineaArchivo[3];
-    correo = LineaArchivo[4];
-    claveplana = LineaArchivo[5];
+    campo_000 = LineaArchivo[0]; //Curso
+    campo_001 = LineaArchivo[1]; //Genero
+    campo_002 = LineaArchivo[2]; //Nombre
+    campo_003 = LineaArchivo[3]; //Apellido
+    campo_004 = LineaArchivo[4]; //Correo
+    campo_005 = LineaArchivo[5]; //Archivo
 
-    if (genero == 'm') {
+    if (campo_001 == 'm') {
       saludo = 'Estimado';
     } else {
       saludo = 'Estimada';
     }
 
     mailOptions = {
-      from: '"Concientización de Cibersegiridad" <ciber@sdtic.cl>', 
-      to:  nombre +" "+ apellido +" <"+ correo +">", 
-      subject: "Acceso a plataforma e-learning", 
-      text: `${saludo} ${nombre} ${apellido} Sus datos de acceso   a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes:  - Usuario: ${username} - Contraseña: ${claveplana} Saluda atentamente, Depatamento de Ciberdefensa y Ciberseguridad`, // texto plano
-      html: saludo +" <b>"+ nombre +" "+ apellido +"</b>"+
-            "<br><br>Sus datos de acceso a la plataforma de e-learning, para la concientozación de Cibersegiridad, son los siguientes: <br><br>"+
-            "- Usuario: <b>"+ username + "</b><br>"+
-            "- Contraseña: <b>"+ claveplana + "</b><br>"+
-            "- URL: <b> <a href='https://www.seade.cl/moodle'>Plataforma e-learning</a></b><br><br>" +
-            "Se adjunta manual de uso.<br><br>Saludos cordiales,<br><b>Depatamento de Ciberdefensa y Ciberseguridad</b>", // html
+      from: '"Certificados" <ciber@sdtic.cl>', 
+      to:  campo_002 +" "+ campo_003 +" <"+ campo_004 +">", 
+      subject: "Certificado de Curso "+ campo_000, 
+      text: `${saludo} ${campo_002} ${campo_003} Ud. a completado con éxito y aprobado el curso  ${campo_000}  Se adjunta Certificado. Saludos cordiales, Depatamento de Ciberdefensa y Ciberseguridad Subsecretaría de Defernsa`, // texto plano
+      html: saludo +" <b>"+ campo_002 +" "+ campo_003 +"</b>"+
+            "<br><br>Ud. a completado con éxito y aprobado el curso <b>"+ campo_000 +".</b> <br><br>"+
+            "Se adjunta Certificado.<br><br>Saludos cordiales,<br><b>Depatamento de Ciberdefensa y Ciberseguridad <br> Subsecretaría de Defensa</b>", // html
       attachments: [
            {   // utf-8 string as an attachment
-               filename: 'manual_de_uso.pdf',
+               filename: campo_005,
                //content: new Buffer('hello world!','utf-8')
-               path: '../listas/manual_de_uso.pdf'
+               path: '../listas/'+campo_005
            }
       ]
     };
